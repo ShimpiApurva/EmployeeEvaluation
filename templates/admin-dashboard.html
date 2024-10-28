@@ -1,0 +1,76 @@
+<!--  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/adminDashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/admin/employee-management">Employee Management</a></li>
+                <li><a href="/admin/performance-analysis">Performance Analysis</a></li>
+                <li><a href="/admin/appraisal-management">Appraisal Management</a></li>
+                <li><a href="/admin/leave-approval">Leave Approval</a></li>
+                <li><a href="/admin/logout">Logout</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <h1>Welcome to Admin Dashboard</h1>
+            <p>Select an option from the sidebar to proceed.</p>
+        </div>
+    </div>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/adminDashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#" th:onclick="|loadContent('/admin/employee-management')|">Employee Management</a></li>
+                 <li><a href="#" th:onclick="|loadContent('/admin/assigned-task')|">Assigned task here</a></li> 
+                <li><a href="#" th:onclick="|loadContent('/admin/performance-analysis')|">Performance Analysis</a></li>
+                <li><a href="#" th:onclick="|loadContent('/admin/appraisal-management')|">Appraisal Management</a></li>
+                <li><a href="#" th:onclick="|loadContent('/admin/leave-approval')|">Leave Approval</a></li>
+                <li><a href="/admin/logout">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Welcome to Admin Dashboard!</h1>
+            <div id="content-area">
+                <p>Select an option from the sidebar to proceed.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Load Employee Management page by default on dashboard load
+    window.onload = function() {
+        loadContent('/admin/employee-management');
+    };
+
+    // Function to load content via AJAX
+    function loadContent(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => document.getElementById("content-area").innerHTML = data)
+            .catch(err => console.error("Error loading content: ", err));
+    }
+</script>
+</body>
+</html>
+

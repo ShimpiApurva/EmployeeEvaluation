@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/css/empdashboard.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <ul class="list-unstyled components">
+                <li><a href="#" onclick="loadContent('/employee/profile-management')">Profile Management</a></li>
+                <li><a href="#" onclick="loadContent('/employee/view-assigned-task')">View Assigned Task</a></li> 
+                <li><a href="#" onclick="loadContent('/employee/performance-dashboard')">Performance Dashboard</a></li>
+                <li><a href="#" onclick="loadContent('/employee/task-progress')">Task Progress</a></li>
+                <li><a href="#" onclick="loadContent('/employee/appraisal-history')">Appraisal History</a></li>
+                <li><a href="#" onclick="loadContent('/employee/leave-request')">Leave Request</a></li>
+                <li><a href="/employee/logout">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <div id="dashboard-header">
+                <h2>Employee Dashboard</h2>
+            </div>
+            <div class="welcome-message">
+                <h3>Welcome, <span th:text="${employeeName}"></span>!</h3>
+            </div>
+
+            <!-- This is where the dynamic content will be loaded -->
+            <div id="content-area">
+<!--                 <h2>Profile Management</h2> -->
+<!--                 <p>Welcome! This is the default page showing employee profile details.</p> -->
+<!--                 <a href="/employee/manage-profile?username=your_employee_username" class="btn btn-primary">Manage Profile</a> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to load content via AJAX
+        function loadContent(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => document.getElementById("content-area").innerHTML = data)
+                .catch(err => console.error("Error loading content: ", err));
+        }
+    </script>
+</body>
+</html>

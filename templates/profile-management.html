@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management</title>
+    <link rel="stylesheet" type="text/css" href="/css/profile-management.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Profile Management</h2>
+        <div class="profile-details">
+            <p><strong>First Name:</strong> <span th:text="${employee.firstName}"></span></p>
+            <p><strong>Last Name:</strong> <span th:text="${employee.lastName}"></span></p>
+            <p><strong>Date of Birth:</strong> <span th:text="${employee.dateOfBirth}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${employee.email}"></span></p>
+            <p><strong>Department:</strong> <span th:text="${employee.department}"></span></p>
+            <p><strong>Address:</strong> <span th:text="${employee.address}"></span></p>
+            <p><strong>Mobile Number:</strong> <span th:text="${employee.mobileNumber}"></span></p>
+        </div>
+        <div class="manage-profile">
+            <a href="/employee/manage-profile" class="btn btn-primary">Manage Profile</a>
+        </div>
+    </div>
+</body>
+</html>
